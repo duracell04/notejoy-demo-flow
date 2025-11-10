@@ -12,18 +12,39 @@ export const Header = () => {
         
         <nav className="hidden md:flex items-center gap-6">
           <NavLink 
-            to="/wallet" 
+            to="/market" 
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             activeClassName="text-foreground font-medium"
           >
-            Wallet
+            Market
           </NavLink>
           <NavLink 
-            to="/demo" 
+            to="/issuer" 
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             activeClassName="text-foreground font-medium"
           >
-            Demo
+            Issuer
+          </NavLink>
+          <NavLink 
+            to="/investor" 
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            activeClassName="text-foreground font-medium"
+          >
+            Investor
+          </NavLink>
+          <NavLink 
+            to="/servicer" 
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            activeClassName="text-foreground font-medium"
+          >
+            Servicer
+          </NavLink>
+          <NavLink 
+            to="/compliance" 
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            activeClassName="text-foreground font-medium"
+          >
+            Compliance
           </NavLink>
         </nav>
 
