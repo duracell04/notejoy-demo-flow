@@ -50,3 +50,48 @@ export function saveIssuerState(next: IssuerState) {
 export function resetIssuerState() {
   if (typeof window !== "undefined") localStorage.removeItem(KEY);
 }
+
+// Investor KYC state
+export type InvestorProfile = {
+  fullName: string;
+  country: string;
+  dateOfBirth: string;
+  taxId?: string;
+};
+
+export type KYCStatus = "not_started" | "submitted" | "approved" | "rejected";
+
+export type InvestorState = {
+  kycCompleted: boolean;
+  profile?: InvestorProfile;
+  kycStatus: KYCStatus;
+  accredited: boolean;
+  riskAcknowledged: boolean;
+};
+
+const INVESTOR_KEY = "notex_investor_state_v1";
+
+export function loadInvestorState(): InvestorState {
+  try {
+    const raw = typeof window !== "undefined" ? localStorage.getItem(INVESTOR_KEY) : null;
+    if (!raw) return { kycCompleted: false, kycStatus: "not_started", accredited: false, riskAcknowledged: false };
+    const v = JSON.parse(raw) as InvestorState;
+    return { 
+      kycCompleted: !!v.kycCompleted, 
+      profile: v.profile, 
+      kycStatus: v.kycStatus ?? "not_started", 
+      accredited: !!v.accredited,
+      riskAcknowledged: !!v.riskAcknowledged
+    };
+  } catch {
+    return { kycCompleted: false, kycStatus: "not_started", accredited: false, riskAcknowledged: false };
+  }
+}
+
+export function saveInvestorState(next: InvestorState) {
+  if (typeof window !== "undefined") localStorage.setItem(INVESTOR_KEY, JSON.stringify(next));
+}
+
+export function resetInvestorState() {
+  if (typeof window !== "undefined") localStorage.removeItem(INVESTOR_KEY);
+}

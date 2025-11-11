@@ -5,7 +5,7 @@ interface StepperProps {
   labels: string[];
 }
 
-export const Stepper = ({ step, labels }: StepperProps) => {
+const Stepper = ({ step, labels }: StepperProps) => {
   return (
     <div className="flex gap-3 mb-6 flex-wrap">
       {labels.map((label, i) => {
@@ -30,3 +30,5 @@ export const Stepper = ({ step, labels }: StepperProps) => {
     </div>
   );
 };
+
+export default Stepper;

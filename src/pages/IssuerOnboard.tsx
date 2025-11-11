@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Stepper } from "@/components/onboarding/Stepper";
+import Stepper from "@/components/onboarding/Stepper";
 import { IssuerCompanyForm } from "@/components/onboarding/IssuerCompanyForm";
 import { IssuerAuditCard } from "@/components/onboarding/IssuerAuditCard";
 import { InstrumentForm } from "@/components/onboarding/InstrumentForm";
